@@ -42,3 +42,23 @@ def main():
         except Exception as e:
             print(f"Ошибка при чтении файла: {e}")
 
+class TestBinarySearch(unittest.TestCase):
+    def test_is_multiple_of_3(self):
+        self.assertTrue(is_multiple_of_3('11'))
+        self.assertTrue(is_multiple_of_3('110'))
+        self.assertFalse(is_multiple_of_3('10'))
+        self.assertFalse(is_multiple_of_3('100'))
+
+    def test_find_binaries(self):
+        input_data = "101 110 111 1000 1001"
+        expected = ['110', '1001']
+        self.assertEqual(find_binaries(input_data), expected)
+
+    def test_find_binaries_empty(self):
+        input_data = ""
+        expected = []
+        self.assertEqual(find_binaries(input_data), expected)
+
+if __name__ == "__main__":
+    main()
+    unittest.main()
