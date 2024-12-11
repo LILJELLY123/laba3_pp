@@ -22,3 +22,23 @@ def find_binaries_in_file(file_path):
     with open(file_path, 'r') as file:
         data = file.read()
     return find_binaries(data)
+
+def main():
+    input_data = input("Введите строку с двоичными числами: ")
+    print("Двоичные числа, кратные 3:", find_binaries(input_data))
+
+    url = input("Введите URL для поиска двоичных чисел (или оставьте пустым): ")
+    if url:
+        try:
+            data_from_url = get_data_from_url(url)
+            print("Двоичные числа, кратные 3 из URL:", find_binaries(data_from_url))
+        except Exception as e:
+            print(f"Ошибка при получении данных из URL: {e}")
+
+    file_path = input("Введите путь к файлу для поиска двоичных чисел (или оставьте пустым): ")
+    if file_path:
+        try:
+            print("Двоичные числа, кратные 3 из файла:", find_binaries_in_file(file_path))
+        except Exception as e:
+            print(f"Ошибка при чтении файла: {e}")
+
